@@ -35,6 +35,11 @@
     "tslint": "^5.11.0",
     "typescript": "^3.3"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.ts": [
       "yarn validate",
