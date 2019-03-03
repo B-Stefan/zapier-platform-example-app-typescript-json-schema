@@ -7,20 +7,19 @@ A barebones app that has a resource defined. This is mainly a proof-of-concept f
 Run this:
 
 ```bash
-npm run zapier-dev # compiles & watches your app
-zapier test
+yarn test
 ```
 
 There's also a non-watch command:
 
 ```bash
-npm run zapier-build
+yarn build
 ```
 
 To push, instead of `zapier push`, we do:
 
 ```bash
-npm run zapier-push # compiles first
+yarn push # builds and push to zapier
 ```
 
 > We recommend using the zapier-platform-cli and `zapier init . --template=typescript` to create an app.
