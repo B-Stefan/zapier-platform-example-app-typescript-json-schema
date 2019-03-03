@@ -1,6 +1,6 @@
 # Typescript Example App For Zapier Platform
 
-[![Build Status](https://travis-ci.org/zapier/zapier-platform-example-app-typescript.svg?branch=master)](https://travis-ci.org/zapier/zapier-platform-example-app-typescript)
+[![Build Status](https://travis-ci.org/B-Stefan/zapier-platform-example-app-typescript-json-schema.svg?branch=master)](https://travis-ci.org/B-Stefan/zapier-platform-example-app-typescript-json-schema)
 
 A barebones app that has a resource defined. This is mainly a proof-of-concept for using features not yet available in node.
 
