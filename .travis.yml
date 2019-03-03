@@ -4,7 +4,7 @@ node_js:
   - 8.12.0
   - 8.11.0
 before_script:
-  - yarn global -g zapier-platform-cli
+  - yarn add global -g zapier-platform-cli
   - yarn build
 script:
   - yarn test
