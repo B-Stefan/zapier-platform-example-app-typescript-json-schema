@@ -1,7 +1,9 @@
 import Authentication from "./authentication";
 import Recipe from "./resources/recipe";
-const { version } = require("../package.json");
 import { version as platformVersion } from "zapier-platform-core";
+
+// tslint:disable-next-line
+const { version } = require("../package.json");
 
 const App = {
   version,

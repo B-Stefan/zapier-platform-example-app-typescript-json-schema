@@ -8,8 +8,8 @@
   "license": "BSD-3-Clause",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --project ./tsconfig.build.json && yarn build-schema  && cp -r ./src/models/schema/ ./build/models/schema/",
-    "build-schema": "node ./build/generateSchema.js && prettier ./src/models/schema/** --write && echo 'Yes'",
+    "build": "tsc --project ./tsconfig.build.json && yarn build-schema  && cp -r ./src/models/schema/ ./lib/models/schema/",
+    "build-schema": "node ./lib/generateSchema.js && prettier ./src/models/schema/** --write && echo 'Schema build done'",
     "push": "yarn build && zapier push",
     "prepare": "yarn build",
     "validate": "yarn build && zapier validate && echo",
@@ -34,11 +34,6 @@
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "typescript": "^3.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.ts": [
