@@ -1,10 +1,12 @@
 enum RecipeStyle {
-    Italian = "italian",
-    Mexian = "mexican"
+  Italian = "italian",
+  Mexian = "mexican"
 }
 export default interface Recipe {
-    directions: any;
-    authorId: string;
-    name: string;
-    style: RecipeStyle;
+  id: string;
+  directions: any;
+  authorId: string;
+  name: string;
+  style: RecipeStyle;
+  createdAt: Date;
 }

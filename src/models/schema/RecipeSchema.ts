@@ -2,6 +2,9 @@
 export const RecipeSchema = {
   type: "object",
   properties: {
+    id: {
+      type: "string"
+    },
     directions: {},
     authorId: {
       type: "string"
@@ -11,6 +14,11 @@ export const RecipeSchema = {
     },
     style: {
       $ref: "#/definitions/RecipeStyle"
+    },
+    createdAt: {
+      description: "Enables basic storage and retrieval of dates and times.",
+      type: "string",
+      format: "date-time"
     }
   },
   definitions: {

@@ -1,4 +1,6 @@
 import { ZObject, Bundle } from "zapier-platform-core";
+import ZapierSchemaBuilder from "zapier-platform-json-schema/build/ZapierSchemaBuilder";
+import { RecipeSchema } from "../models/schema/RecipeSchema";
 
 const _sharedBaseUrl = "https://auth-json-server.zapier.ninja";
 
@@ -75,7 +77,10 @@ const Recipe = {
       description: "Gets a recipe."
     },
     operation: {
-      inputFields: [{ key: "id", required: true }],
+      inputFields: new ZapierSchemaBuilder(RecipeSchema)
+        .setExcludeAll(true)
+        .addInclude("id")
+        .build(),
       perform: getRecipe,
       sample
     }
@@ -87,13 +92,10 @@ const Recipe = {
       description: "Trigger when a new recipe is added."
     },
     operation: {
-      inputFields: [
-        {
-          key: "style",
-          type: "string",
-          helpText: "Explain what style of cuisine this is."
-        }
-      ],
+      inputFields: new ZapierSchemaBuilder(RecipeSchema)
+        .setExcludeAll(true)
+        .addInclude("style")
+        .build(),
       perform: listRecipes,
       sample
     }
@@ -111,27 +113,7 @@ const Recipe = {
       description: "Creates a new recipe."
     },
     operation: {
-      inputFields: [
-        { key: "name", required: true, type: "string" },
-        {
-          key: "directions",
-          required: true,
-          type: "text",
-          helpText: "Explain how should one make the recipe, step by step."
-        },
-        {
-          key: "authorId",
-          required: true,
-          type: "integer",
-          label: "Author ID"
-        },
-        {
-          key: "style",
-          required: false,
-          type: "string",
-          helpText: "Explain what style of cuisine this is."
-        }
-      ],
+      inputFields: new ZapierSchemaBuilder(RecipeSchema).build(),
       perform: createRecipe,
       sample
     }
@@ -143,7 +125,10 @@ const Recipe = {
       description: "Finds an existing recipe by name."
     },
     operation: {
-      inputFields: [{ key: "name", required: true, type: "string" }],
+      inputFields: new ZapierSchemaBuilder(RecipeSchema)
+        .setExcludeAll(true)
+        .addInclude("name")
+        .build(),
       perform: searchRecipe,
       sample
     }
@@ -158,14 +143,7 @@ const Recipe = {
   // field definitions. The result will be used to augment the sample.
   // outputFields: () => { return []; }
   // Alternatively, a static field definition should be provided, to specify labels for the fields
-  outputFields: [
-    { key: "id", label: "ID" },
-    { key: "createdAt", label: "Created At" },
-    { key: "name", label: "Name" },
-    { key: "directions", label: "Directions" },
-    { key: "authorId", label: "Author ID" },
-    { key: "style", label: "Style" }
-  ]
+  outputFields: new ZapierSchemaBuilder(RecipeSchema).build()
 };
 
 export default Recipe;
